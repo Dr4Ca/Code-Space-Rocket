@@ -1,11 +1,13 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollissionHandler : MonoBehaviour
 {
-
+    // Kalo namanya beda gak bakalan bisa, jangan dicoba, udah dicoba
     void OnCollisionEnter(Collision collision)
     {
-        
+        // Lebih efektif ketimbang if statement
         switch (collision.gameObject.tag)
         {
             case "Respawn":
@@ -14,12 +16,16 @@ public class CollissionHandler : MonoBehaviour
             case "Finish":
                 Debug.Log("You've finished!");
                 break;
-            case "Testing":
-                Debug.Log("Collision Tested");
-                break;
             default:
-                Debug.Log("You bumped!");
+                ReloadLevel();
                 break;
+        }
+        
+        void ReloadLevel()
+        {
+            // Biar bisa load scene lain tanpa input angka
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentScene);
         }
     }
 }

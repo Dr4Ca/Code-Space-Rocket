@@ -4,20 +4,22 @@ using UnityEngine.InputSystem;
 
 public class movement : MonoBehaviour
 {
+    // Komponen
     Rigidbody rb;
     AudioSource audioSource;
 
+    // Variabel
     [SerializeField] InputAction thrust;
     [SerializeField] InputAction rotation;
     [SerializeField] float thrustForce = 10f;
     [SerializeField] float rotationForce = 10f;
 
-    private void Start()
+    private void Start() // Manggil komponen ulang dengan alias
     {
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
-    }
-
+    } // ^                    ^
+//     alias    Komponen yang pengen dipanggil
     private void OnEnable()
     {
         thrust.Enable();
@@ -31,17 +33,20 @@ public class movement : MonoBehaviour
 
     private void processThrust()
     {
+        // Apa yang terjadi kalo thrust di pencet
         if (thrust.IsPressed())
         {
+            // Objek bakalan naik ke atas
             rb.AddRelativeForce(Vector3.up * thrustForce * Time.fixedDeltaTime);
+            // Kalo Audio gak ke play, maka play
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
             }
         }
-        else
+        else // Pas Thrust udah gak kepencet lagi
         {
-            if (audioSource.isPlaying)
+            if (audioSource.isPlaying) // Kalo audionya ke play, maka diberhentikan
             {
                 audioSource.Stop();
             }
@@ -49,15 +54,15 @@ public class movement : MonoBehaviour
     }
 
     private void processRotation()
-    {
-        float rotationInput = rotation.ReadValue<float>();
-        if (rotationInput < 0)
+    { // Ke kanan (-) ke kiri (+)
+        float rotationInput = rotation.ReadValue<float>(); // Biar nilai dari rotationInput bisa dilihat
+        if (rotationInput < 0) // Kalo nilainya kurang dari 0
         {
             ApplyRotation(rotationForce);
         }
-        else if (rotationInput > 0)
+        else if (rotationInput > 0) // Kalo nilainya lebih dari 0
         {
-            ApplyRotation(-rotationForce);
+            ApplyRotation(-rotationForce); // Dikasih (-) karena nilainya berbanding terbalik dgn di atas
         }
     }
 
