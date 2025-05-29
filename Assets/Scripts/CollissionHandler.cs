@@ -14,18 +14,35 @@ public class CollissionHandler : MonoBehaviour
                 Debug.Log("This is fine");
                 break;
             case "Finish":
-                Debug.Log("You've finished!");
+                LoadNextLevel();
                 break;
             default:
                 ReloadLevel();
                 break;
         }
-        
+
+        void LoadNextLevel()
+        {
+            // Biar bisa load level selanjutnya
+            int nextLevel = SceneManager.GetActiveScene().buildIndex;
+
+            // Begini biar nanti kalo level udah mentok, balik ke awal
+            int loadToNextLevel = nextLevel + 1;
+            if (loadToNextLevel == SceneManager.sceneCountInBuildSettings)
+            {
+                loadToNextLevel = 0;
+            }
+
+            // Lanjut ke level atau scene selanjutnya
+            SceneManager.LoadScene(loadToNextLevel);
+        }
+
         void ReloadLevel()
         {
-            // Biar bisa load scene lain tanpa input angka
+            // Biar bisa load scene tanpa input angka dan balik ke scene awal banget
             int currentScene = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentScene);
         }
+        
     }
 }
