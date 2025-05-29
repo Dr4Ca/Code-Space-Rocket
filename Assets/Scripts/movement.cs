@@ -33,7 +33,7 @@ public class movement : MonoBehaviour
     {
         if (thrust.IsPressed())
         {
-            rb.AddRelativeForce(Vector3.up * thrustForce * Time.fixedDeltaTime, ForceMode.Acceleration);
+            rb.AddRelativeForce(Vector3.up * thrustForce * Time.fixedDeltaTime);
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -63,9 +63,9 @@ public class movement : MonoBehaviour
 
     private void ApplyRotation(float rotationFrame)
     {
-        rb.freezeRotation = true; // Prevent physics from rotating the object
+        rb.freezeRotation = true; 
         // Rotate the object around its forward axis    
         transform.Rotate(Vector3.forward * rotationFrame * Time.fixedDeltaTime);
-        rb.freezeRotation = false; // Re-enable physics rotation
+        rb.freezeRotation = false; 
     }
 }
