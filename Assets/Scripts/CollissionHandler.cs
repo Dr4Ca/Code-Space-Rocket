@@ -1,9 +1,13 @@
+using System.ComponentModel;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollissionHandler : MonoBehaviour
 {
+    // Variable
+    [SerializeField] float levelDelay = 2f;
+
     // Kalo namanya beda gak bakalan bisa, jangan dicoba, udah dicoba
     void OnCollisionEnter(Collision collision)
     {
@@ -14,35 +18,47 @@ public class CollissionHandler : MonoBehaviour
                 Debug.Log("This is fine");
                 break;
             case "Finish":
-                LoadNextLevel();
+                WhenFinish(); // Kalo kena bakalan ke level selanjutnya
                 break;
             default:
-                ReloadLevel();
+                WhenCrash(); // Apa yang terjadi ketika kena object diluar tag diatas
                 break;
         }
+    }
 
-        void LoadNextLevel()
+    void WhenFinish()
+    {
+        GetComponent<movement>().enabled = false; // Biar pas kena gak bakalan bisa terbang
+        Invoke("LoadNextLevel", levelDelay); // Pas kena obstacle, bakalan ada delay dulu biar gak error
+    }
+
+    void WhenCrash()
+    {
+        GetComponent<movement>().enabled = false; // Biar pas kena keliatan rusak jadi gak terbang
+        Invoke("ReloadLevel", levelDelay); // Pas kena obstacle, bakalan ada delay dulu biar gak error (mungkin)
+    }
+
+    void LoadNextLevel()
+    {
+    
+        // Biar bisa load level selanjutnya
+        int nextLevel = SceneManager.GetActiveScene().buildIndex;
+
+        // Begini biar nanti kalo level udah mentok, balik ke awal
+        int loadToNextLevel = nextLevel + 1;
+        if (loadToNextLevel == SceneManager.sceneCountInBuildSettings)
         {
-            // Biar bisa load level selanjutnya
-            int nextLevel = SceneManager.GetActiveScene().buildIndex;
-
-            // Begini biar nanti kalo level udah mentok, balik ke awal
-            int loadToNextLevel = nextLevel + 1;
-            if (loadToNextLevel == SceneManager.sceneCountInBuildSettings)
-            {
-                loadToNextLevel = 0;
-            }
-
-            // Lanjut ke level atau scene selanjutnya
-            SceneManager.LoadScene(loadToNextLevel);
+            loadToNextLevel = 0;
         }
 
-        void ReloadLevel()
-        {
-            // Biar bisa load scene tanpa input angka dan balik ke scene awal banget
-            int currentScene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentScene);
-        }
-        
+        // Lanjut ke level atau scene selanjutnya
+        SceneManager.LoadScene(loadToNextLevel);
+    }
+
+    void ReloadLevel()
+    {
+        // Biar bisa load scene tanpa input angka dan balik ke scene awal banget, jadi level loop
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentScene);
     }
 }
