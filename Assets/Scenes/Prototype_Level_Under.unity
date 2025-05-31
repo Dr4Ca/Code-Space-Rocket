@@ -633,24 +633,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1253864240 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 78808183097323686, guid: d4453704ec7f0434eb2904c886384255, type: 3}
-  m_PrefabInstance: {fileID: 5572080055448146433}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1253864246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253864240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9691958f25b1374459eb2785e084c550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelDelay: 1
 --- !u!1 &1396302316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a41951dc5dfb26c4d9f2e74b27bb583c, type: 3}
@@ -935,10 +917,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Rocket
       objectReference: {fileID: 0}
-    - target: {fileID: 78808183097323686, guid: d4453704ec7f0434eb2904c886384255, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 1394981720695305867, guid: d4453704ec7f0434eb2904c886384255, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.05
@@ -979,18 +957,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2396233133957323611, guid: d4453704ec7f0434eb2904c886384255, type: 3}
-      propertyPath: m_Constraints
-      value: 56
+    - target: {fileID: 8925933829492165677, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6088057247906921002, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+    - target: {fileID: 9000751169012940203, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: levelDelay
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 78808183097323686, guid: d4453704ec7f0434eb2904c886384255, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1253864246}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4453704ec7f0434eb2904c886384255, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

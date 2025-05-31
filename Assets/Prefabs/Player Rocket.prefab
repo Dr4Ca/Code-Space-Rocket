@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1394981720695305867}
   - component: {fileID: 6107201402320557231}
+  - component: {fileID: 9000751169012940203}
   - component: {fileID: 2396233133957323611}
   - component: {fileID: 3569795607218039874}
   - component: {fileID: 8925933829492165677}
-  - component: {fileID: 6088057247906921002}
+  - component: {fileID: 7827893203298772528}
   m_Layer: 0
   m_Name: Player Rocket
   m_TagString: Player
@@ -133,6 +134,22 @@ MonoBehaviour:
     m_Flags: 0
   thrustForce: 1000
   rotationForce: 200
+  ThrustSound: {fileID: 8300000, guid: ce1b92390f68fd84981d603154f5220d, type: 3}
+--- !u!114 &9000751169012940203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78808183097323686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9691958f25b1374459eb2785e084c550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelDelay: 1
+  CrashSound: {fileID: 8300000, guid: a73a16a5839d4b341bf7c727a1b2e8d3, type: 3}
+  FinishSound: {fileID: 8300000, guid: 0b7af3e2a4b35ed4a84cca4fc4a097df, type: 3}
 --- !u!54 &2396233133957323611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -191,8 +208,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ce1b92390f68fd84981d603154f5220d, type: 3}
-  m_Resource: {fileID: 8300000, guid: ce1b92390f68fd84981d603154f5220d, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -278,7 +295,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6088057247906921002
+--- !u!114 &7827893203298772528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,9 +304,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 78808183097323686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8c02adfcadaa84289a69de33b9f56f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9691958f25b1374459eb2785e084c550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelDelay: 2
+  CrashSound: {fileID: 8300000, guid: a73a16a5839d4b341bf7c727a1b2e8d3, type: 3}
+  FinishSound: {fileID: 8300000, guid: 0b7af3e2a4b35ed4a84cca4fc4a097df, type: 3}
 --- !u!1001 &2054162461312558012
 PrefabInstance:
   m_ObjectHideFlags: 0

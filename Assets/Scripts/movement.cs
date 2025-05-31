@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +12,7 @@ public class movement : MonoBehaviour
     [SerializeField] InputAction rotation;
     [SerializeField] float thrustForce = 10f;
     [SerializeField] float rotationForce = 10f;
+    [SerializeField] AudioClip ThrustSound;
 
     private void Start() // Manggil komponen ulang dengan alias
     {
@@ -41,7 +41,7 @@ public class movement : MonoBehaviour
             // Kalo Audio gak ke play, maka play
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(ThrustSound);
             }
         }
         else // Pas Thrust udah gak kepencet lagi
