@@ -7,7 +7,7 @@ public class movement : MonoBehaviour
     Rigidbody rb;
     AudioSource audioSource;
 
-    // Variabel
+    // Parameter
     [SerializeField] InputAction thrust;
     [SerializeField] InputAction rotation;
     [SerializeField] float thrustForce = 10f;

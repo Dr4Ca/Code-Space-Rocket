@@ -8,10 +8,12 @@ public class CollissionHandler : MonoBehaviour
     // komponen
     AudioSource audioSource;
 
-    // Variable
+    // Parameter
     [SerializeField] float levelDelay = 2f;
     [SerializeField] AudioClip CrashSound;
     [SerializeField] AudioClip FinishSound;
+
+    bool isControlAble = true;
 
     void Start()
     {
@@ -21,6 +23,8 @@ public class CollissionHandler : MonoBehaviour
     // Kalo namanya beda gak bakalan bisa, jangan dicoba, udah dicoba
     void OnCollisionEnter(Collision collision)
     {
+        if (!isControlAble) { return; } // Biar suaranya gak double pas kebentur lagi
+
         // Lebih efektif ketimbang if statement
         switch (collision.gameObject.tag)
         {
@@ -38,6 +42,8 @@ public class CollissionHandler : MonoBehaviour
 
     void WhenFinish()
     {
+        isControlAble = false;
+        audioSource.Stop();
         audioSource.PlayOneShot(FinishSound);
         GetComponent<movement>().enabled = false; // Biar pas kena gak bakalan bisa terbang
         Invoke("LoadNextLevel", levelDelay); // Pas kena obstacle, bakalan ada delay dulu biar gak error
@@ -45,6 +51,8 @@ public class CollissionHandler : MonoBehaviour
 
     void WhenCrash()
     {
+        isControlAble = false;
+        audioSource.Stop();
         audioSource.PlayOneShot(CrashSound);
         GetComponent<movement>().enabled = false;
         Invoke("ReloadLevel", levelDelay);

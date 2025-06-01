@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9691958f25b1374459eb2785e084c550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDelay: 1
+  levelDelay: 1.5
   CrashSound: {fileID: 8300000, guid: a73a16a5839d4b341bf7c727a1b2e8d3, type: 3}
   FinishSound: {fileID: 8300000, guid: 0b7af3e2a4b35ed4a84cca4fc4a097df, type: 3}
 --- !u!54 &2396233133957323611
