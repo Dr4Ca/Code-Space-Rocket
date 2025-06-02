@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1394981720695305867}
   - component: {fileID: 6107201402320557231}
-  - component: {fileID: 9000751169012940203}
+  - component: {fileID: 6321666227056788821}
   - component: {fileID: 2396233133957323611}
   - component: {fileID: 3569795607218039874}
   - component: {fileID: 8925933829492165677}
-  - component: {fileID: 7827893203298772528}
   m_Layer: 0
   m_Name: Player Rocket
   m_TagString: Player
@@ -36,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4900191776286479362}
+  - {fileID: 1458455326663769569}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6107201402320557231
@@ -135,7 +135,7 @@ MonoBehaviour:
   thrustForce: 1000
   rotationForce: 200
   ThrustSound: {fileID: 8300000, guid: ce1b92390f68fd84981d603154f5220d, type: 3}
---- !u!114 &9000751169012940203
+--- !u!114 &6321666227056788821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,9 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9691958f25b1374459eb2785e084c550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDelay: 1.5
-  CrashSound: {fileID: 8300000, guid: a73a16a5839d4b341bf7c727a1b2e8d3, type: 3}
-  FinishSound: {fileID: 8300000, guid: 0b7af3e2a4b35ed4a84cca4fc4a097df, type: 3}
+  levelDelay: 1
+  crashSFX: {fileID: 8300000, guid: a73a16a5839d4b341bf7c727a1b2e8d3, type: 3}
+  finishSFX: {fileID: 8300000, guid: 0b7af3e2a4b35ed4a84cca4fc4a097df, type: 3}
+  crashVFX: {fileID: 1458455326683166881}
 --- !u!54 &2396233133957323611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -295,21 +296,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7827893203298772528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78808183097323686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9691958f25b1374459eb2785e084c550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelDelay: 2
-  CrashSound: {fileID: 8300000, guid: a73a16a5839d4b341bf7c727a1b2e8d3, type: 3}
-  FinishSound: {fileID: 8300000, guid: 0b7af3e2a4b35ed4a84cca4fc4a097df, type: 3}
 --- !u!1001 &2054162461312558012
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,4 +357,71 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6377417671358724030, guid: cf91000b018c5e64d87fba48f5ab81b9, type: 3}
   m_PrefabInstance: {fileID: 2054162461312558012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5017488674577274478
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1394981720695305867}
+    m_Modifications:
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000011921
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880797563127281583, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+      propertyPath: m_Name
+      value: CFXR Hit D 3D (Yellow)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+--- !u!4 &1458455326663769569 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5880797563126852495, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+  m_PrefabInstance: {fileID: 5017488674577274478}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1458455326683166881 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5880797563141009103, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
+  m_PrefabInstance: {fileID: 5017488674577274478}
   m_PrefabAsset: {fileID: 0}

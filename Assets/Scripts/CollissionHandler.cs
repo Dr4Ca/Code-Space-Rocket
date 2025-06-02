@@ -1,5 +1,3 @@
-using System.ComponentModel;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,8 +8,9 @@ public class CollissionHandler : MonoBehaviour
 
     // Parameter
     [SerializeField] float levelDelay = 2f;
-    [SerializeField] AudioClip CrashSound;
-    [SerializeField] AudioClip FinishSound;
+    [SerializeField] AudioClip crashSFX;
+    [SerializeField] AudioClip finishSFX;
+    [SerializeField] ParticleSystem crashVFX;
 
     bool isControlAble = true;
 
@@ -40,22 +39,23 @@ public class CollissionHandler : MonoBehaviour
         }
     }
 
-    void WhenFinish()
-    {
-        isControlAble = false;
-        audioSource.Stop();
-        audioSource.PlayOneShot(FinishSound);
-        GetComponent<movement>().enabled = false; // Biar pas kena gak bakalan bisa terbang
-        Invoke("LoadNextLevel", levelDelay); // Pas kena obstacle, bakalan ada delay dulu biar gak error
-    }
-
     void WhenCrash()
     {
         isControlAble = false;
         audioSource.Stop();
-        audioSource.PlayOneShot(CrashSound);
+        audioSource.PlayOneShot(crashSFX);
+        crashVFX.Play();
         GetComponent<movement>().enabled = false;
         Invoke("ReloadLevel", levelDelay);
+    }
+
+    void WhenFinish()
+    {
+        isControlAble = false;
+        audioSource.Stop();
+        audioSource.PlayOneShot(finishSFX);
+        GetComponent<movement>().enabled = false; // Biar pas kena gak bakalan bisa terbang
+        Invoke("LoadNextLevel", levelDelay); // Pas kena obstacle, bakalan ada delay dulu biar gak error
     }
 
     void LoadNextLevel()

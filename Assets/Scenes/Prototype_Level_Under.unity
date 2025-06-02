@@ -273,7 +273,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.05, y: 3.7753475, z: -11.91}
+  m_LocalPosition: {x: -11.05, y: 2.7160254, z: -12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -731,7 +731,7 @@ Transform:
   m_GameObject: {fileID: 1927420817}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.05, y: 3.7753475, z: -11.91}
+  m_LocalPosition: {x: -11.05, y: 2.7160254, z: -12.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -749,10 +749,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 11.91
+  CameraDistance: 12.5
   DeadZoneDepth: 0
   Composition:
-    ScreenPosition: {x: 0, y: 0.14}
+    ScreenPosition: {x: 0, y: 0.06}
     DeadZone:
       Enabled: 0
       Size: {x: 0, y: 0}
@@ -955,6 +955,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394981720695305867, guid: d4453704ec7f0434eb2904c886384255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458455326663769569, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.495
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458455326663769569, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.495
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458455326663769569, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.495
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458455326663769569, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.131
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441955466231753492, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571956438279381191, guid: d4453704ec7f0434eb2904c886384255, type: 3}
+      propertyPath: m_Intensity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
