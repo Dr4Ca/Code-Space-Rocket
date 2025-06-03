@@ -13,6 +13,9 @@ public class movement : MonoBehaviour
     [SerializeField] float thrustForce = 10f;
     [SerializeField] float rotationForce = 10f;
     [SerializeField] AudioClip ThrustSound;
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem leftEngineParticles;
+    [SerializeField] ParticleSystem rightEngineParticles; 
 
     private void Start() // Manggil komponen ulang dengan alias
     {
@@ -43,13 +46,16 @@ public class movement : MonoBehaviour
             {
                 audioSource.PlayOneShot(ThrustSound);
             }
+
+            if (!mainEngineParticles.isPlaying)
+            {    
+                mainEngineParticles.Play();
+            }
         }
         else // Pas Thrust udah gak kepencet lagi
         {
-            if (audioSource.isPlaying) // Kalo audionya ke play, maka diberhentikan
-            {
-                audioSource.Stop();
-            }
+            audioSource.Stop();
+            mainEngineParticles.Stop();
         }
     }
 
@@ -59,10 +65,25 @@ public class movement : MonoBehaviour
         if (rotationInput < 0) // Kalo nilainya kurang dari 0
         {
             ApplyRotation(rotationForce);
+            if (!rightEngineParticles.isPlaying)
+            {
+                rightEngineParticles.Stop();
+                rightEngineParticles.Play();
+            }
         }
         else if (rotationInput > 0) // Kalo nilainya lebih dari 0
         {
             ApplyRotation(-rotationForce); // Dikasih (-) karena nilainya berbanding terbalik dgn di atas
+            if (!leftEngineParticles.isPlaying)
+            {
+                leftEngineParticles.Stop();
+                leftEngineParticles.Play();
+            }
+        }
+        else
+        {
+            rightEngineParticles.Stop();
+            leftEngineParticles.Stop();
         }
     }
 
