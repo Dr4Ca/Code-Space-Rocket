@@ -10,19 +10,20 @@ public class movement : MonoBehaviour
     // Parameter
     [SerializeField] InputAction thrust;
     [SerializeField] InputAction rotation;
+    [SerializeField] InputAction debugKey;
     [SerializeField] float thrustForce = 10f;
     [SerializeField] float rotationForce = 10f;
     [SerializeField] AudioClip ThrustSound;
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem leftEngineParticles;
-    [SerializeField] ParticleSystem rightEngineParticles; 
+    [SerializeField] ParticleSystem rightEngineParticles;
 
     private void Start() // Manggil komponen ulang dengan alias
     {
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     } // ^                    ^
-//     alias    Komponen yang pengen dipanggil
+      //     alias    Komponen yang pengen dipanggil
     private void OnEnable()
     {
         thrust.Enable();
@@ -48,7 +49,7 @@ public class movement : MonoBehaviour
             }
 
             if (!mainEngineParticles.isPlaying)
-            {    
+            {
                 mainEngineParticles.Play();
             }
         }
@@ -89,9 +90,9 @@ public class movement : MonoBehaviour
 
     private void ApplyRotation(float rotationFrame)
     {
-        rb.freezeRotation = true; 
+        rb.freezeRotation = true;
         // Rotate the object around its forward axis    
         transform.Rotate(Vector3.forward * rotationFrame * Time.fixedDeltaTime);
-        rb.freezeRotation = false; 
+        rb.freezeRotation = false;
     }
 }

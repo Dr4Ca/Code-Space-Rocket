@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CollissionHandler : MonoBehaviour
@@ -19,10 +20,23 @@ public class CollissionHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        RespondToDebugKey();   
+    }
+
+    void RespondToDebugKey()
+    {
+        if (Keyboard.current.nKey.IsPressed())
+        {
+            LoadNextLevel();
+        }
+    }
+
     // Kalo namanya beda gak bakalan bisa, jangan dicoba, udah dicoba
     void OnCollisionEnter(Collision collision)
     {
-        if (!isControlAble) { return; } // Biar suaranya gak double pas kebentur lagi
+        if (!isControlAble) { return; } // Kalo gak true, balik lagi sampe true
 
         // Lebih efektif ketimbang if statement
         switch (collision.gameObject.tag)
@@ -45,8 +59,8 @@ public class CollissionHandler : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(crashSFX);
         crashVFX.Play();
-        GetComponent<movement>().enabled = false;
-        Invoke("ReloadLevel", levelDelay);
+        GetComponent<movement>().enabled = false; // Biar pas collide, player gak bisa terbang lagi.
+        Invoke("ReloadLevel", levelDelay); // Biar ada jeda pas collide / Finish
     }
 
     void WhenFinish()
@@ -54,8 +68,8 @@ public class CollissionHandler : MonoBehaviour
         isControlAble = false;
         audioSource.Stop();
         audioSource.PlayOneShot(finishSFX);
-        GetComponent<movement>().enabled = false; // Biar pas kena gak bakalan bisa terbang
-        Invoke("LoadNextLevel", levelDelay); // Pas kena obstacle, bakalan ada delay dulu biar gak error
+        GetComponent<movement>().enabled = false;
+        Invoke("LoadNextLevel", levelDelay); 
     }
 
     void LoadNextLevel()
