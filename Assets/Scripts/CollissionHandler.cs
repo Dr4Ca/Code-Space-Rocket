@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -22,7 +23,7 @@ public class CollissionHandler : MonoBehaviour
 
     void Update()
     {
-        RespondToDebugKey();   
+        RespondToDebugKey();
     }
 
     void RespondToDebugKey()
@@ -69,7 +70,7 @@ public class CollissionHandler : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(finishSFX);
         GetComponent<movement>().enabled = false;
-        Invoke("LoadNextLevel", levelDelay); 
+        Invoke("LoadNextLevel", levelDelay);
     }
 
     void LoadNextLevel()
@@ -91,5 +92,5 @@ public class CollissionHandler : MonoBehaviour
         // Eksekusi Level Loop
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
-    }
+    } 
 }
