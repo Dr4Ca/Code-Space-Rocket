@@ -15,29 +15,34 @@ public class CollissionHandler : MonoBehaviour
     [SerializeField] ParticleSystem crashVFX;
 
     bool isControlAble = true;
+    bool isCollideAble = true;
 
-    void Start()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    void Update()
+    private void Update()
     {
         RespondToDebugKey();
     }
 
     void RespondToDebugKey()
     {
-        if (Keyboard.current.nKey.IsPressed())
+        if (Keyboard.current.nKey.wasPressedThisFrame)
         {
             LoadNextLevel();
+        }
+        else if (Keyboard.current.cKey.wasPressedThisFrame)
+        {
+            isCollideAble = !isCollideAble;
         }
     }
 
     // Kalo namanya beda gak bakalan bisa, jangan dicoba, udah dicoba
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!isControlAble) { return; } // Kalo gak true, balik lagi sampe true
+        if (!isControlAble || !isCollideAble) { return; } // Kalo gak true, balik lagi sampe true
 
         // Lebih efektif ketimbang if statement
         switch (collision.gameObject.tag)
