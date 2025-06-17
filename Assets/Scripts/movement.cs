@@ -18,6 +18,8 @@ public class movement : MonoBehaviour
     [SerializeField] ParticleSystem leftEngineParticles;
     [SerializeField] ParticleSystem rightEngineParticles;
 
+    
+
     private void Start() // Manggil komponen ulang dengan alias
     {
         audioSource = GetComponent<AudioSource>();

@@ -27,6 +27,7 @@ public class CollissionHandler : MonoBehaviour
         RespondToDebugKey();
     }
 
+    // Cheat buat umlimited next level sama matiin collide
     void RespondToDebugKey()
     {
         if (Keyboard.current.nKey.wasPressedThisFrame)
