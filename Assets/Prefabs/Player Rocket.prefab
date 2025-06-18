@@ -135,6 +135,15 @@ MonoBehaviour:
       m_Action: Rotation
       m_Flags: 8
     m_Flags: 0
+  debugKey:
+    m_Name: Debug Key
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8581681f-4781-4d76-944a-0ce587683c8f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   thrustForce: 1000
   rotationForce: 250
   ThrustSound: {fileID: 8300000, guid: ce1b92390f68fd84981d603154f5220d, type: 3}
